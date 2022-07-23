@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/bonan-todo-web.iml" filepath="$PROJECT_DIR$/bonan-todo-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bonan-notes-web.iml" filepath="$PROJECT_DIR$/bonan-notes-web.iml" />
     </modules>
   </component>
 </project>
