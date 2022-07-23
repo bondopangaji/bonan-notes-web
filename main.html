@@ -1,0 +1,111 @@
+<!--
+ Copyright (c) 2022 Bondo Pangaji
+ 
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonan Notes</title>
+    <link rel="shortcut icon" href="assets/img/logo-m.png">
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="assets/vendor/pico/pico.min.css">
+
+    <!-- Custom styles for this example -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+<!-- Nav -->
+<nav class="container-fluid">
+    <ul>
+        <li>
+            <a href="./" class="contrast" onclick="event.preventDefault()"><strong>Bonan Todo List</strong></a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <details role="list" dir="rtl">
+                <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
+                <ul role="listbox">
+                    <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                    <li><a href="#" data-theme-switcher="light">Light</a></li>
+                    <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                </ul>
+            </details>
+        </li>
+        <li>
+            <a href="#" id="logout-button">Logout</a>
+        </li>
+    </ul>
+</nav><!-- ./ Nav -->
+
+<main class="main container">
+    <ul class="cards" id="cards">
+    </ul>
+</main>
+
+<!-- Button to trigger the modal -->
+<button class="contrast fab"
+        data-target="modal-note"
+        onClick="toggleModal(event)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+         viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+    </svg>
+</button>
+
+<!-- Modal -->
+<dialog id="modal-note">
+    <article>
+        <form autocomplete="off" class="form-group modal-form" id="form" href="#close" aria-label="Close" data-target="modal-todo" onsubmit="toggleModal(event)">
+            <a href="#close" aria-label="Close" class="del-btn" data-target="modal-note"
+               onclick="toggleModal(event)"></a>
+            <label for="note-title">Note Title</label>
+            <input type="text" placeholder="Type here" class="form-control" id="note-title" required/>
+            <label for="note-description">Note Description</label>
+            <textarea placeholder="Type here" class="form-control" id="note-description" required></textarea>
+            <button type="submit">Add Note</button>
+        </form>
+    </article>
+</dialog><!-- ./ Modal example -->
+
+<!-- Footer -->
+<footer class="container-fluid">
+    <small> Developed by Bondo Pangaji & Husen Minan</small>
+</footer><!-- ./ Footer -->
+
+<!-- Firebase App -->
+<script src="assets/vendor/firebase/firebase-app.js"></script>
+
+<!-- Firebase Service -->
+<script src="assets/vendor/firebase/firebase-auth.js"></script>
+<script src="assets/vendor/firebase/firebase-firestore.js"></script>
+
+<!-- Pico -->
+<script src="assets/vendor/pico/minimal.theme.switcher.js"></script>
+<script src="assets/vendor/pico/modal.js"></script>
+
+<!-- Firebase config initialization -->
+<script src="api/config/_init.js"></script>
+
+<!-- App -->
+<script src="api/util/uuidv4.js"></script>
+<script src="api/auth/auth-middleware.js"></script>
+<script src="api/auth/auth-logout.js"></script>
+<script src="api/notes/notes.js"></script>
+
+
+</body>
+
+</html>

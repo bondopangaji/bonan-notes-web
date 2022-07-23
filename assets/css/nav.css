@@ -1,0 +1,25 @@
+/* Nav */
+summary[role="link"].secondary:is([aria-current], :hover, :active, :focus) {
+    background-color: transparent;
+    color: var(--secondary-hover);
+}
+
+/* Hero Image */
+article div:nth-of-type(2) {
+    display: none;
+    background-color: #374956;
+    background-image: url("../img/logo-m.png");
+    background-position: center;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    .grid>div:nth-of-type(2) {
+        display: block;
+    }
+}
+
+/* Footer */
+body>footer {
+    padding: 1rem 0;
+}

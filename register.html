@@ -1,0 +1,97 @@
+<!--
+ Copyright (c) 2022 Bondo Pangaji
+
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonan Notes • Register</title>
+    <link rel="shortcut icon" href="assets/img/logo-m.png">
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="assets/vendor/pico/pico.min.css">
+
+    <!-- Custom styles for this example -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+
+    <!-- AlpineJS -->
+    <script type="text/javascript" defer src="assets/vendor/alpine/alpinejs-3.10.2.js"></script>
+</head>
+
+<body>
+
+<!-- Nav -->
+<nav class="container-fluid">
+    <ul>
+        <li>
+            <a href="./" class="contrast" onclick="event.preventDefault()"><strong>Bonan Notes</strong></a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <details role="list" dir="rtl">
+                <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
+                <ul role="listbox">
+                    <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                    <li><a href="#" data-theme-switcher="light">Light</a></li>
+                    <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                </ul>
+            </details>
+        </li>
+    </ul>
+</nav><!-- ./ Nav -->
+
+<!-- Main -->
+<main class="container">
+    <article class="grid">
+        <div>
+            <hgroup>
+                <h1>Register</h1>
+                <h2>Get started with Bonan Notes!</h2>
+            </hgroup>
+            <form id="register-form">
+                <input id="name" type="text" placeholder="Name" aria-label="Name" required>
+                <input id="email" type="email" placeholder="Email" aria-label="Email" required>
+                <input id="password" type="password" placeholder="Password" aria-label="Password" required>
+                <p> Have an account?
+                    <a href="index.html" class="contrast"> Login</a>
+                </p>
+                <button type="submit" class="contrast" >Submit</button>
+            </form>
+        </div>
+        <div></div>
+    </article>
+</main><!-- ./ Main -->
+
+<!-- Footer -->
+<footer class="container-fluid">
+    <small> Developed by Bondo Pangaji & Husen Minan </small> <br>
+</footer><!-- ./ Footer -->
+
+<!-- Minimal theme switcher -->
+<script src="assets/vendor/pico/minimal.theme.switcher.js"></script>
+
+<!-- Firebase App -->
+<script src="assets/vendor/firebase/firebase-app.js"></script>
+
+<!-- Firebase Service -->
+<script src="assets/vendor/firebase/firebase-auth.js"></script>
+<script src="assets/vendor/firebase/firebase-firestore.js"></script>
+
+<!-- Firebase config initialization -->
+<script src="api/config/_init.js"></script>
+
+<!-- App -->
+<script src="api/auth/auth-register.js"></script>
+
+</body>
+
+</html>
