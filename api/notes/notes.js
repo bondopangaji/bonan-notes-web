@@ -10,7 +10,7 @@ form.addEventListener("submit", (e) => {
   const id = uuidv4();
   const noteTitle = form["note-title"].value;
   const noteDescription = form["note-description"].value;
-  const createdAt = new Date().toLocaleString();
+  const createdAt = dateNow();
   form.reset();
   addNote(id, noteTitle, noteDescription, createdAt)
 });
