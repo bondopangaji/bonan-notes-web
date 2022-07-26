@@ -20,9 +20,6 @@ https://opensource.org/licenses/MIT
     <!-- Custom styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/nav.css">
-
-    <!-- Alpine.js -->
-    <script type="text/javascript" defer src="assets/vendor/alpine/alpinejs-3.10.2.js"></script>
 </head>
 
 <body>
@@ -89,17 +86,6 @@ https://opensource.org/licenses/MIT
     <!-- App -->
     <script src="api/auth/auth-login.js"></script>
 
-    <script>
-        db.child("Notes").get().then((snapshot) => {
-            if (snapshot.exists()) {
-                console.log(snapshot.val());
-            } else {
-                console.log("No data available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
-    </script>
 </body>
 
 </html>
