@@ -19,9 +19,11 @@ function register(name, email, password) {
   auth
     .createUserWithEmailAndPassword(email, password)
     .then((cred) => {
-      cred.updateProfile({
+      const user = cred.user;
+      user.updateProfile({
         displayName: name,
       });
+      location = "login.html";
     })
     .catch((err) => {
       alert(err.msg);
