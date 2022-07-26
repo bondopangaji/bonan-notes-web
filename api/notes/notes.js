@@ -93,16 +93,15 @@ function getAll(childKey, childData) {
   const formUpdate = document.getElementById("form-update");
   cardContent.addEventListener("click", (e) => {
     const key = e.target.parentElement.getAttribute("data-id");
-    console.log(key);
     formUpdate.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = {
         title: formUpdate["note-title-update"].value,
         description: formUpdate["note-description-update"].value,
+        createdAt: dateNow(),
       };
       form.reset();
       updateNote(key, data);
-      console.log(key, data);
     });
   });
 
@@ -152,7 +151,6 @@ auth.onAuthStateChanged((user) => {
       snapshot.forEach((childSnapshot) => {
         let childKey = childSnapshot.key;
         let childData = childSnapshot.val();
-        console.log(childSnapshot);
         getAll(childKey, childData);
       });
     });
