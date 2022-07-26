@@ -34,7 +34,7 @@ function addNote(noteTitle, noteDescription, createdAt) {
           if (error) {
             alert(error);
           } else {
-            location.reload();
+            alert("Sucessfully add notes");
           }
         }
       );
@@ -63,7 +63,6 @@ function getAll(childKey, childData) {
   cardContent.className = "card_content";
   cardContent.dataset.target = "modal-update";
   cardContent.setAttribute("onClick", "toggleModal(event)");
-  cardContent.setAttribute("data-id", childKey);
   // Card title
   const cardTitle = document.createElement("h2");
   cardTitle.className = "card_title";
@@ -92,7 +91,10 @@ function getAll(childKey, childData) {
   // Update note event handler
   const formUpdate = document.getElementById("form-update");
   cardContent.addEventListener("click", (e) => {
-    const key = e.target.parentElement.getAttribute("data-id");
+    const key =
+      e.target.parentElement.parentElement.parentElement.getAttribute(
+        "data-id"
+      );
     formUpdate.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = {
@@ -147,7 +149,6 @@ auth.onAuthStateChanged((user) => {
     let notesRef = db.ref("users/" + user.uid);
 
     notesRef.on("child_added", (snapshot) => {
-      // const values = snapshot.val();
       snapshot.forEach((childSnapshot) => {
         let childKey = childSnapshot.key;
         let childData = childSnapshot.val();
@@ -156,7 +157,6 @@ auth.onAuthStateChanged((user) => {
     });
 
     notesRef.on("child_removed", (snapshot) => {
-      // const values = snapshot.val();
       snapshot.forEach((childSnapshot) => {
         let childKey = childSnapshot.key;
         let li = noteContainer.querySelector("[data-id=" + childKey + "]");
