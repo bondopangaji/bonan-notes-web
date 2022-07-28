@@ -23,7 +23,7 @@ function register(name, email, password) {
       user.updateProfile({
         displayName: name,
       });
-      location = "login.html";
+      location = "index.html";
     })
     .catch((err) => {
       alert(err.msg);

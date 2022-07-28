@@ -35,6 +35,7 @@ function addNote(noteTitle, noteDescription, createdAt) {
             alert(error);
           } else {
             alert("Sucessfully add notes");
+            location.reload();
           }
         }
       );
@@ -91,10 +92,15 @@ function getAll(childKey, childData) {
   // Update note event handler
   const formUpdate = document.getElementById("form-update");
   cardContent.addEventListener("click", (e) => {
-    const key =
-      e.target.parentElement.parentElement.parentElement.getAttribute(
-        "data-id"
-      );
+    const key = e.target.parentElement.parentElement.getAttribute("data-id");
+    let titleQ = e.target.querySelector("h2");
+    let descriptionQ = e.target.querySelector("p");
+    let title = titleQ.innerText;
+    let description = descriptionQ.outerText;
+
+    document.getElementById("note-title-update").value = title;
+    document.getElementById("note-description-update").value = description;
+
     formUpdate.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = {
@@ -103,6 +109,7 @@ function getAll(childKey, childData) {
         createdAt: dateNow(),
       };
       form.reset();
+      console.log(key);
       updateNote(key, data);
     });
   });
